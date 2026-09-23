@@ -2,8 +2,25 @@
 import PlotFigure from "../components/PlotFigure.astro";
 import Layout from "../layouts/Layout.astro";
 import * as Plot from "@observablehq/plot";
+
+const selectSpecies = ["Adelie", "Chinstrap", "Gentoo"];
+
 ---
 <Layout>
-     <h1 class="text-2xl m-3 p-4">Pinguin avec filtre</h1>   
+     <h1 class="text-2xl m-3 p-4">Pinguin avec filtre</h1>
+     <div class="m-3">
+          <select
+               class="select select-success bg-base-100 text-base-content"
+               name="species"
+               id="species"
+          >
+               <option value="">Toutes les species</option>
+               {selectSpecies.map((species) => (
+                    <option value={species}>{species}</option>
+               ))}
+          </select>
+
+
+     </div>
 
 </Layout>
